@@ -34,13 +34,13 @@ while elapsed <= endTime        % checks that the program has been running for l
         u = i/4.5;              % creates a u value to be substituted into symbolic function
         instVR = (double (subs(vR)))/4.5;   % creates instantaneous velocity for right wheel
         instVL = (double (subs(vL)))/4.5;   % creates instantaneous velocity for right wheel
-        msg.Data = [instVL, instVR];        % writes data to data object in message
-        send(pub, msg);                     % sends message to neto
-        pause(timeStep - toc(startLoopTime))% delays re-running the loop for timeStep seconds from the start of the loop
+        msg.Data = [instVL, instVR];        
+        send(pub, msg);
+        pause(timeStep - toc(startLoopTime))
     end
-    elapsed = toc(tStart);                  %recreates elapsed to check whether or not the while loop should end
+    elapsed = toc(tStart);
 end
 
-msg.Data = [0,0];               % writes 0 velocities to data object of message
-send(pub, msg);                 % sends 0 velocities to neto
+msg.Data = [0,0];
+send(pub, msg);
 %rosshutdown
