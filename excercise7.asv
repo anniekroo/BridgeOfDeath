@@ -41,13 +41,13 @@ x = [];
 y = [];
 oldTurn = 0;
 for i = 1:size(v, 2)
-    newTurn = w(i)*sampleTime + oldTurn;    %calculating new theta
-    x = [x, v(:,i).*cos(newTurn)];          %calculating new position x
-    y = [y, v(:,i).*sin(newTurn)];          %calculating new position y
+    newTurn = w(i)*sampleTime + oldTurn;    %
+    x = [x, v(:,i).*cos(newTurn)];
+    y = [y, v(:,i).*sin(newTurn)];
     oldTurn = newTurn;
 end
 clf
-plot(x(2,:),y(2,:), '.')                    %plotting right wheel
+plot(x(2,:),y(2,:), '.')
 hold on
-plot(x(1,:),y(1,:), '.')                    %plotting left wheel
+plot(x(1,:),y(1,:), '.')
 %rosshutdown
